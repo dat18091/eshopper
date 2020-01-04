@@ -11,6 +11,13 @@
 |
 */
 
+#Front End
 Route::get('/', 'HomeController@Index');
-
 Route::get('/trang-chu', 'HomeController@Index');
+
+#Back End
+Route::get('/admin', 'AdminController@Index');
+Route::get('/dashboard', 'AdminController@show_dashboard');
+
+Route::post('/admin-dashboard', 'AdminController@dashboard');
+Route::get('/logout', 'AdminController@logout');
