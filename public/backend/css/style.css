@@ -4017,3 +4017,61 @@ span.alert {
     color: red;
     width: 100%;
 }
+
+button.btn.btn-save {
+    border-radius: 10px;
+    width: 100px;
+    color: #333333;
+    background: lightslategray;
+}
+
+button.btn.btn-cancel {
+    border-radius: 10px;
+    width: 100px;
+    color: #333333;
+    background: lightslategray;
+}
+
+button.btn.btn-save:hover {
+    background: green;
+}
+
+button.btn.btn-cancel:hover {
+    background: red;
+}
+
+button.btn.btn-sm.btn-default {
+    border-radius: 0;
+    width: 50px;
+    margin-top: 10px;
+}
+
+span.input-group-btn {
+    border-radius: 0;
+    margin-top: 10px;
+}
+
+input.input-sm.form-control {
+    border-radius: 0;
+    margin-top: 10px;
+}
+
+i.fa.fa-edit {
+    font-size: 20px;
+    color: green;
+}
+
+i.fa.fa-trash {
+    font-size: 20px;
+    color: red;
+}
+
+.fa-styling.fa.fa-thumbs-up {
+    font-size: 25px;
+    color: blue;
+}
+
+.fa-styling.fa.fa-thumbs-down {
+    font-size: 25px;
+    color: grey;
+}

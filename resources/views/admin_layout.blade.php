@@ -273,14 +273,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <span>Dashboard</span>
                             </a>
                         </li>
+                        <li class="sub-menu"><!-- Parent -->
+                            <a href="javascript:;">
+                                <i class="glyphicon glyphicon-grain"></i>
+                                <span>Parent</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="{{URL::to('/add-parent-category')}}"><i class="fa fa-circle-o"></i> Add Parent</a></li>
+                                <li><a href="{{URL::to('/list-parent-category')}}"><i class="fa fa-circle-o"></i> List Parent</a></li>
+                            </ul>
+                        </li>
                         <li class="sub-menu"><!-- Category -->
                             <a href="javascript:;">
                                 <i class="glyphicon glyphicon-grain"></i>
                                 <span>Category</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="typography.html"><i class="fa fa-circle-o"></i> Add Category</a></li>
-                                <li><a href="glyphicon.html"><i class="fa fa-circle-o"></i> List Category</a></li>
+                                <li><a href="{{URL::to('/add-category-product')}}"><i class="fa fa-circle-o"></i> Add Category</a></li>
+                                <li><a href="{{URL::to('/list-category-product')}}"><i class="fa fa-circle-o"></i> List Category</a></li>
                             </ul>
                         </li>
                         <li class="sub-menu"><!-- Brand -->
@@ -301,6 +311,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <ul class="sub">
                                 <li><a href="typography.html"><i class="fa fa-circle-o"></i> Add Product</a></li>
                                 <li><a href="glyphicon.html"><i class="fa fa-circle-o"></i> List Product</a></li>
+                            </ul>
+                        </li>
+                        <li class="sub-menu"><!-- Slider -->
+                            <a href="javascript:;">
+                                <i class="glyphicon glyphicon-book"></i>
+                                <span>Slider</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="typography.html"><i class="fa fa-circle-o"></i> Add Slider</a></li>
+                                <li><a href="glyphicon.html"><i class="fa fa-circle-o"></i> List Slider</a></li>
                             </ul>
                         </li>
                         <li><!-- Login -->
