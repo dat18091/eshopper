@@ -35,3 +35,19 @@ Route::get('/edit-category-product/{category_product_id}', 'CategoryController@e
 Route::get('/delete-category-product/{category_product_id}', 'CategoryController@delete_category_product');
 
 Route::post('/update-category-product/{category_product_id}', 'CategoryController@update_category_product');
+
+#Parent Category 
+Route::get('/add-parent-category', 'ParentCategory@add_parent_category');
+Route::get('/list-parent-category', 'ParentCategory@list_parent_category');
+
+Route::post('/save-parent-category', 'ParentCategory@save_parent_category');
+
+Route::get('/unactive-parent-category/{parent_category_id}', 'ParentCategory@unactive_parent_category');
+Route::get('/active-parent-category/{parent_category_id}', 'ParentCategory@active_parent_category');
+
+Route::get('/edit-parent-category/{parent_category_id}', 'ParentCategory@edit_parent_category');
+Route::get('/delete-parent-category/{parent_category_id}', 'ParentCategory@delete_parent_category');
+
+Route::post('/update-parent-category/{parent_category_id}', 'ParentCategory@update_parent_category');
+
+#Brand Product

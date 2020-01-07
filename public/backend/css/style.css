@@ -989,10 +989,12 @@ ul.top-menu>li>a:focus {
     border-top-left-radius: 2px;
     text-transform: uppercase;
     text-align: center;
+    border-radius: 10px 10px 0 0;
 }
 
 .panel {
     border: none ! important;
+    border-radius: 10px;
 }
 
 .agileinfo-grap {
