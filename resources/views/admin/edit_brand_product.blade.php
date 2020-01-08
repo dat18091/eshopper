@@ -4,7 +4,7 @@
     <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
-                Update Category
+                Add Brand
             </header>
             <div class="panel-body">
                 <div class="form-group">
@@ -21,32 +21,20 @@
                         </span>
                     </div>
                 </div>
-                @foreach($edit_category_product as $key => $cat_edit)
-                <form class="form-horizontal bucket-form" method="post" action="{{URL::to('/update-category-product/'.$cat_edit->category_id)}}">
+                @foreach($edit_brand_product as $key => $brand_edit)
+                <form class="form-horizontal bucket-form" method="post" action="{{URL::to('/update-brand-product/'.$brand_edit->brand_id)}}">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Category Name</label>
+                        <label class="col-sm-3 control-label">Brand Name</label>
                         <div class="col-sm-6">
-                            <input type="text" name="category_product_name" value="{{ $cat_edit->category_name }}" placeholder="Enter category name..." class="form-control">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Category Parent</label>
-                        <div class="col-lg-6">
-
-                            <select name="category_product_parent" class="form-control m-bot15">
-                                <option value="1">Electronic Devices</option>
-                                <option value="2">Home & Lifestyle</option>
-                            </select>
-
+                            <input type="text" name="brand_product_name" value="{{ $brand_edit->brand_name }}" class="form-control">
                         </div>
                     </div>
 
                     <div class="form-group ">
-                        <label for="ccomment" placeholder="Enter category description..." class="control-label col-lg-3">Category Description</label>
+                        <label for="ccomment" class="control-label col-lg-3">Brand Description</label>
                         <div class="col-lg-6">
-                            <textarea class="form-control" name="category_product_description" style="resize: none;" rows="5" id="ccomment" required="">{{ $cat_edit->category_description }}</textarea>
+                            <textarea class="form-control" name="brand_product_description" style="resize: none;" rows="5" id="ccomment" required="">{{ $brand_edit->brand_description }}</textarea>
                         </div>
                     </div>
 

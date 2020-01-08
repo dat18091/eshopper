@@ -299,8 +299,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <span>Brand</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="typography.html"><i class="fa fa-circle-o"></i> Add Brand</a></li>
-                                <li><a href="glyphicon.html"><i class="fa fa-circle-o"></i> List Brand</a></li>
+                                <li><a href="{{URL::to('/add-brand-product')}}"><i class="fa fa-circle-o"></i> Add Brand</a></li>
+                                <li><a href="{{URL::to('/list-brand-product')}}"><i class="fa fa-circle-o"></i> List Brand</a></li>
                             </ul>
                         </li>
                         <li class="sub-menu"><!-- Product -->
