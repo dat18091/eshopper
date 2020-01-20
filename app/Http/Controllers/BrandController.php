@@ -13,17 +13,29 @@ session_start();
 class BrandController extends Controller
 {
     //
+    public function checkLogin(){
+        $admin_id = Session::get('admin_id');
+        if($admin_id) {
+            return Redirect::to('dashboard');
+        } else {
+            return Redirect::to('admin')->send();
+        }
+    }
+
     public function add_brand_product(){
+        $this->checkLogin();
         return view('admin.add_brand_product');
     }
 
     public function list_brand_product(){
+        $this->checkLogin();
         $list_brand_product = DB::table('tbl_brand_product')->get();
         $manager_brand_product = view('admin.list_brand_product')->with('list_brand_product', $list_brand_product);
         return view('admin_layout')->with('admin.list_brand_product', $manager_brand_product);
     }
 
     public function save_brand_product(Request $request){
+        $this->checkLogin();
         $data = array();
 
         $data['brand_name'] = $request->brand_product_name;
@@ -36,18 +48,21 @@ class BrandController extends Controller
     }
 
     public function unactive_brand_product($brand_product_id){
+        $this->checkLogin();
         DB::table('tbl_brand_product')->where('brand_id', $brand_product_id)->update(['brand_status' => 1]);
         Session::put('message', 'Hide this brand is successfully.');
         return Redirect::to('list-brand-product');
     }
 
     public function active_brand_product($brand_product_id){
+        $this->checkLogin();
         DB::table('tbl_brand_product')->where('brand_id', $brand_product_id)->update(['brand_status' => 0]);
         Session::put('message', 'Show this brand is successfully.');
         return Redirect::to('list-brand-product');
     }
 
     public function update_brand_product(Request $request, $brand_product_id){
+        $this->checkLogin();
         $data = array();
 
         $data['brand_name'] = $request->brand_product_name;
@@ -59,12 +74,14 @@ class BrandController extends Controller
     }
 
     public function edit_brand_product($brand_product_id){
+        $this->checkLogin();
         $edit_brand_product = DB::table('tbl_brand_product')->where('brand_id', $brand_product_id)->get();
         $manager_brand_product = view('admin.edit_brand_product')->with('edit_brand_product', $edit_brand_product);
         return view('admin_layout')->with('admin.edit_brand_product', $manager_brand_product);
     }
 
     public function delete_brand_product($brand_product_id){
+        $this->checkLogin();
         DB::table('tbl_brand_product')->where('brand_id', $brand_product_id)->delete();
         Session::put('message', 'Delete this brand is successfully.');
         return Redirect::to('list-brand-product');

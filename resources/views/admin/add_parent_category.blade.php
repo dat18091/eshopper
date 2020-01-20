@@ -9,7 +9,7 @@
             <div class="panel-body">
                 <form class="form-horizontal bucket-form" method="post" action="{{URL::to('/save-parent-category')}}">
                     {{ csrf_field() }}
-                    <div class="form-group">
+                    <div class="form-group"><!-- Message -->
                         <label class="col-sm-3 control-label"></label>
                         <div class="col-sm-6">
                             <span class="help-block">
@@ -24,20 +24,21 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group"><!-- Add Parent Category -->
                         <label class="col-sm-3 control-label">Parent Category Name</label>
                         <div class="col-sm-6">
-                            <input type="text" name="parent_category_name" placeholder="Enter category name..." class="form-control">
+                            <input type="text" name="parent_category_name" placeholder="Enter parent category name..." class="form-control">
                         </div>
                     </div>
 
-                    <div class="form-group ">
+                    <div class="form-group "><!-- Add Parent Description -->
                         <label for="ccomment" placeholder="Enter parent catgory description..." class="control-label col-lg-3">Parent Category Description</label>
                         <div class="col-lg-6">
                             <textarea class="form-control" name="parent_category_description" style="resize: none;" rows="5" id="ccomment" required=""></textarea>
                         </div>
                     </div>
-                    <div class="form-group">
+
+                    <div class="form-group"><!-- Add Parent Status -->
                         <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Parent Category Status</label>
                         <div class="col-lg-6">
 
@@ -48,6 +49,7 @@
 
                         </div>
                     </div>
+
                     <div class="form-group">
                         <div class="col-lg-offset-3 col-lg-6">
                             <button name="add_parent_category" class="btn btn-save" type="submit"><i class="glyphicon glyphicon-plus"></i> Save</button>

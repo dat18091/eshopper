@@ -43,7 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!--logo start-->
             <div class="brand">
                 <a href="index.html" class="logo">
-                    VISITORS
+                    E-SHOPPER
                 </a>
                 <div class="sidebar-toggle-box">
                     <div class="fa fa-bars"></div>
@@ -285,7 +285,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </li>
                         <li class="sub-menu"><!-- Category -->
                             <a href="javascript:;">
-                                <i class="glyphicon glyphicon-grain"></i>
+                                <i class="glyphicon glyphicon-certificate"></i>
                                 <span>Category</span>
                             </a>
                             <ul class="sub">
@@ -309,13 +309,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <span>Product</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="typography.html"><i class="fa fa-circle-o"></i> Add Product</a></li>
-                                <li><a href="glyphicon.html"><i class="fa fa-circle-o"></i> List Product</a></li>
+                                <li><a href="{{URL::to('/add-product')}}"><i class="fa fa-circle-o"></i> Add Product</a></li>
+                                <li><a href="{{URL::to('/list-product')}}"><i class="fa fa-circle-o"></i> List Product</a></li>
                             </ul>
                         </li>
                         <li class="sub-menu"><!-- Slider -->
                             <a href="javascript:;">
-                                <i class="glyphicon glyphicon-book"></i>
+                                <i class="glyphicon glyphicon-duplicate"></i>
                                 <span>Slider</span>
                             </a>
                             <ul class="sub">

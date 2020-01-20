@@ -228,4 +228,13 @@ return [
 
     ],
 
+    /*'providers' => [
+        // Other service providers…
+        Laravel\Socialite\SocialiteServiceProvider::class,
+    ],
+  
+    'aliases' => [
+        // Other aliases…
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+    ],*/ 
 ];

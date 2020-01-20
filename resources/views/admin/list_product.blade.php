@@ -2,7 +2,7 @@
 @section('admin_content')
 <div class="panel panel-default">
     <div class="panel-heading">
-        List Category
+        List Brand
     </div>
     <div class="row w3-res-tb">
         <div class="col-sm-5 m-b-xs">
@@ -42,39 +42,47 @@
                         </label>
                     </th>
                     <th>Name</th>
-                    <th>Parent</th>
                     <th>Description</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Brand</th>
+                    <th>Quantity</th>
+                    <th>Image</th>
                     <th>Status</th>
                     <th style="width:30px;"></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($list_category_product as $key => $cat)
+                @foreach($list_product as $key => $product)
                 <tr>
                     <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                    <td>{{ $cat->category_name }}</td>
-                    <td>{{ $cat->parent_name }}</td>
-                    <td>{{ $cat->category_description }}</td>
+                    <td>{{ $product->product_name }}</td>
+                    <td>{{ $product->product_description }}</td>
+                    <td>{{ $product->product_price }}</td>
+                    <td>{{ $product->category_name }}</td>
+                    <td>{{ $product->brand_name }}</td>
+                    <td>{{ $product->product_quantity }}</td>
+                    <td><img src="public/uploads/product/{{ $product->product_image }}" width="50" height="50"></td>
                     <td>
                         <span class="text-ellipsis">
                             <?php
-                            if ($cat->category_status == 0) {
+                            if ($product->product_status == 0) {
                             ?>
-                                <a href="{{URL::to('/unactive-category-product/'.$cat->category_id)}}"><span class="fa-styling fa fa-thumbs-up"></span></a>;
+                                <a href="{{URL::to('/unactive-product/'.$product->product_id)}}"><span class="fa-styling fa fa-thumbs-up"></span></a>;
                             <?php
                             } else {
                             ?>
-                                <a href="{{URL::to('/active-category-product/'.$cat->category_id)}}"><span class="fa-styling fa fa-thumbs-down"></span></a>;
+                                <a href="{{URL::to('/active-product/'.$product->product_id)}}"><span class="fa-styling fa fa-thumbs-down"></span></a>;
                             <?php
                             }
                             ?>
                         </span>
                     </td>
                     <td>
-                        <a href="{{URL::to('/edit-category-product/'.$cat->category_id)}}" class="active" ui-toggle-class="">
+                        <a href="{{URL::to('/edit-product/'.$product->product_id)}}" class="active" ui-toggle-class="">
                             <i class="fa fa-edit"></i>
                         </a>
-                        <a href="{{URL::to('/delete-category-product/'.$cat->category_id)}}" onclick="return confirm('Are you sure want delete this category?')" class="active" ui-toggle-class="">
+                        <a href="{{URL::to('/delete-product/'.$product->product_id)}}" onclick="return confirm('Are you sure want delete this product?')" class="active" ui-toggle-class="">
                             <i class="fa fa-trash"></i>
                         </a>
                     </td>

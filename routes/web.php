@@ -63,3 +63,17 @@ Route::get('/edit-brand-product/{brand_product_id}', 'BrandController@edit_brand
 Route::get('/delete-brand-product/{brand_product_id}', 'BrandController@delete_brand_product');
 
 Route::post('/update-brand-product/{brand_product_id}', 'BrandController@update_brand_product');
+
+#Product
+Route::get('/add-product', 'ProductController@add_product');
+Route::get('/list-product', 'ProductController@list_product');
+
+Route::post('/save-product', 'ProductController@save_product');
+
+Route::get('/unactive-product/{product_id}', 'ProductController@unactive_product');
+Route::get('/active-product/{product_id}', 'ProductController@active_product');
+
+Route::get('/edit-product/{product_id}', 'ProductController@edit_product');
+Route::get('/delete-product/{product_id}', 'ProductController@delete_product');
+
+Route::post('/update-product/{product_id}', 'ProductController@update_product');

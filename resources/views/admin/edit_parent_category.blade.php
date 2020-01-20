@@ -38,17 +38,6 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Parent Category Status</label>
-                        <div class="col-lg-6">
-
-                            <select name="parent_category_status" class="form-control m-bot15">
-                                <option value="0">Hide</option>
-                                <option value="1">Show</option>
-                            </select>
-
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <div class="col-lg-offset-3 col-lg-6">
                             <button name="update_parent_category" class="btn btn-save" type="submit"><i class="glyphicon glyphicon-plus"></i> Update</button>
                             <button name="cancel_parent_category" class="btn btn-cancel" type="button"><i class="glyphicon glyphicon-remove"></i> Cancel</button>

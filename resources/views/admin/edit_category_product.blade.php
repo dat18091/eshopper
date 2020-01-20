@@ -7,7 +7,7 @@
                 Update Category
             </header>
             <div class="panel-body">
-                <div class="form-group">
+                <div class="form-group"><!-- Message -->
                     <label class="col-sm-3 control-label"></label>
                     <div class="col-sm-6">
                         <span class="help-block">
@@ -21,25 +21,29 @@
                         </span>
                     </div>
                 </div>
+
                 @foreach($edit_category_product as $key => $cat_edit)
                 <form class="form-horizontal bucket-form" method="post" action="{{URL::to('/update-category-product/'.$cat_edit->category_id)}}">
                     {{ csrf_field() }}
-                    <div class="form-group">
+                    <div class="form-group"><!-- Category Name -->
                         <label class="col-sm-3 control-label">Category Name</label>
                         <div class="col-sm-6">
                             <input type="text" name="category_product_name" value="{{ $cat_edit->category_name }}" placeholder="Enter category name..." class="form-control">
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group"><!-- Category Parent -->
                         <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Category Parent</label>
                         <div class="col-lg-6">
-
                             <select name="category_product_parent" class="form-control m-bot15">
-                                <option value="1">Electronic Devices</option>
-                                <option value="2">Home & Lifestyle</option>
+                                @foreach($parent_product as $key => $cat_parent)
+                                    @if($cat_parent->parent_id == $cat_edit->parent_id)
+                                        <option selected value="{{ $cat_parent->parent_id }}">{{ $cat_parent->parent_name }}</option>
+                                    @else
+                                        <option value="{{ $cat_parent->parent_id }}">{{ $cat_parent->parent_name }}</option>
+                                    @endif
+                                @endforeach
                             </select>
-
                         </div>
                     </div>
 
