@@ -12,8 +12,8 @@
 */
 
 #Front End
-Route::get('/', 'HomeController@Index');
-Route::get('/trang-chu', 'HomeController@Index');
+Route::get('/', 'HomeController@index');
+Route::get('/trang-chu', 'HomeController@index');
 
 #Back End
 Route::get('/admin', 'AdminController@Index');

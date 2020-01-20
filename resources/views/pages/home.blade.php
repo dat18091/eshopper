@@ -1,21 +1,21 @@
 @extends('layout')
 @section('content')
 <div class="features_items"><!--features_items-->
-    <h2 class="title text-center">Features Items</h2>
-
+    <h2 class="title text-center">New Products</h2>
+    @foreach($all_product as $key => $product)
     <div class="col-sm-4">
         <div class="product-image-wrapper">
             <div class="single-products">
                 <div class="productinfo text-center">
-                    <img src="{{asset('public/frontend/images/home/product1.jpg')}}" alt="" />
-                    <h2>$56</h2>
-                    <p>Easy Polo Black Edition</p>
+                    <img src="{{URL::to('public/uploads/product/'.$product->product_image)}}" width="160" height="300" alt="" />
+                    <h2>{{ number_format($product->product_price).' '.'VND' }}</h2>
+                    <p>{{ $product->product_name }}</p>
                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                 </div>
                 <div class="product-overlay">
                     <div class="overlay-content">
-                        <h2>$56</h2>
-                        <p>Easy Polo Black Edition</p>
+                        <h2>{{ $product->product_price.' VND' }}</h2>
+                        <p>{{ $product->product_name }}</p>
                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                     </div>
                 </div>
@@ -28,16 +28,16 @@
             </div>
         </div>
     </div>
-
+    @endforeach
 </div>
 <!--features_items-->
 
 <div class="category-tab"><!--category-tab-->
     <div class="col-sm-12">
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#tshirt" data-toggle="tab">T-Shirt</a></li>
-            <li><a href="#blazers" data-toggle="tab">Blazers</a></li>
-            <li><a href="#sunglass" data-toggle="tab">Sunglass</a></li>
+            <li class="active"><a href="#tshirt" data-toggle="tab">Mobiles</a></li>
+            <li><a href="#blazers" data-toggle="tab">Tablets</a></li>
+            <li><a href="#sunglass" data-toggle="tab">Laptops</a></li>
             <li><a href="#kids" data-toggle="tab">Kids</a></li>
             <li><a href="#poloshirt" data-toggle="tab">Polo shirt</a></li>
         </ul>

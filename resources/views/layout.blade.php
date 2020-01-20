@@ -113,14 +113,14 @@
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="{{URL::to('/trang-chu')}}" class="active">Home</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
+								<li class="dropdown"><a href="#">Product<i class="fa fa-angle-down"></i></a>
+                                    <!--<ul role="menu" class="sub-menu">
                                         <li><a href="shop.html">Products</a></li>
 										<li><a href="product-details.html">Product Details</a></li> 
 										<li><a href="checkout.html">Checkout</a></li> 
 										<li><a href="cart.html">Cart</a></li> 
 										<li><a href="login.html">Login</a></li> 
-                                    </ul>
+                                    </ul>-->
                                 </li> 
 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
@@ -128,7 +128,7 @@
 										<li><a href="blog-single.html">Blog Single</a></li>
                                     </ul>
                                 </li> 
-								<li><a href="404.html">404</a></li>
+								<li><a href="404.html">Cart</a></li>
 								<li><a href="contact-us.html">Contact</a></li>
 							</ul>
 						</div>
@@ -155,7 +155,7 @@
 						</ol>
 						
 						<div class="carousel-inner">
-							<div class="item active">
+							<div class="item active"><!-- Slider 1 -->
 								<div class="col-sm-6">
 									<h1><span>E</span>-SHOPPER</h1>
 									<h2>Free E-Commerce Template</h2>
@@ -167,7 +167,8 @@
 									<img src="{{asset('public/frontend/images/home/pricing.png')}}"  class="pricing" alt="" />
 								</div>
 							</div>
-							<div class="item">
+
+							<div class="item"><!-- Slider 2 -->
 								<div class="col-sm-6">
 									<h1><span>E</span>-SHOPPER</h1>
 									<h2>100% Responsive Design</h2>
@@ -180,7 +181,7 @@
 								</div>
 							</div>
 							
-							<div class="item">
+							<div class="item"><!-- Slider 3 -->
 								<div class="col-sm-6">
 									<h1><span>E</span>-SHOPPER</h1>
 									<h2>Free Ecommerce Template</h2>
@@ -213,40 +214,49 @@
 			<div class="row">
 				<div class="col-sm-3">
 					<div class="left-sidebar">
-						<h2>Category</h2>
+						<!--<h2>Category</h2>-->
                         <div class="panel-group category-products" id="accordian"><!--category-productsr-->
-                        
+							<!--@foreach($category as $key => $cat)
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+										<a href="{{URL::to('/home-category-product/'.$cat->category_id)}}" data-toggle="collapse" data-parent="#accordian" href="#sportswear">
 											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Sportswear
+											{{ $cat->category_name }}
 										</a>
 									</h4>
 								</div>
-								<!--<div id="sportswear" class="panel-collapse collapse"> 
+								<div id="sportswear" class="panel-collapse collapse"> 
 									<div class="panel-body">
 										<ul>
-											<li><a href="#">Nike </a></li>
-											<li><a href="#">Under Armour </a></li>
-											<li><a href="#">Adidas </a></li>
-											<li><a href="#">Puma</a></li>
-											<li><a href="#">ASICS </a></li>
+											@foreach($category as $key => $cat)
+													<li><a href="#">{{ $cat->category_name }} </a></li>
+											@endforeach
 										</ul>
 									</div>
-								</div>-->
+								</div>
+								<ul class="nav nav-pills nav-stacked">
+									<li><a href="{{URL::to('/home-category-product/'.$cat->category_id)}}">{{ $cat->category_name }}</a></li>
+								</ul>
 							</div>
-                            
+							@endforeach-->
+							<h2>Category</h2>
+							<div class="brands-name">
+								<ul class="nav nav-pills nav-stacked">
+									@foreach($category as $key => $cat)
+									<li><a href="{{URL::to('/home-category-product/'.$cat->category_id)}}"> {{ $cat->category_name }}</a></li>
+                                    @endforeach
+								</ul>
+							</div>
 						</div><!--/category-products-->
 					
 						<div class="brands_products"><!--brands_products-->
 							<h2>Brands</h2>
 							<div class="brands-name">
 								<ul class="nav nav-pills nav-stacked">
-
-									<li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
-                                    
+									@foreach($brand as $key => $br)
+									<li><a href="{{URL::to('/home-brand-product/'.$br->brand_id)}}"> <span class="pull-right">(50)</span>{{ $br->brand_name }}</a></li>
+                                    @endforeach
 								</ul>
 							</div>
 						</div><!--/brands_products-->
