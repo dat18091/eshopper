@@ -15,6 +15,12 @@
 Route::get('/', 'HomeController@index');
 Route::get('/trang-chu', 'HomeController@index');
 
+#Home Category Product
+Route::get('/home-category-product/{category_id}', 'CategoryController@show_category_home');
+
+#Home Brand Product
+Route::get('/home-brand-product/{brand_id}', 'BrandController@show_brand_home');
+
 #Back End
 Route::get('/admin', 'AdminController@Index');
 Route::get('/dashboard', 'AdminController@show_dashboard');

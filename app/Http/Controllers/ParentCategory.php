@@ -66,7 +66,6 @@ class ParentCategory extends Controller
 
         $data['parent_name'] = $request->parent_category_name;
         $data['parent_description'] = $request->parent_category_description;
-        $data['parent_status'] = $request->parent_category_status;
 
         DB::table('tbl_parent_category')->where('parent_id', $parent_category_id)->update($data);
         Session::put('message', 'Update this parent category is successfully.');

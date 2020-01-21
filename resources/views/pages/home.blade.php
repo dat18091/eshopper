@@ -14,7 +14,7 @@
                 </div>
                 <div class="product-overlay">
                     <div class="overlay-content">
-                        <h2>{{ $product->product_price.' VND' }}</h2>
+                        <h2>{{ number_format($product->product_price).' '.'VND' }}</h2>
                         <p>{{ $product->product_name }}</p>
                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                     </div>
@@ -30,7 +30,7 @@
     </div>
     @endforeach
 </div>
-<!--features_items-->
+<!--features_items-->   
 
 <div class="category-tab"><!--category-tab-->
     <div class="col-sm-12">
@@ -38,8 +38,8 @@
             <li class="active"><a href="#tshirt" data-toggle="tab">Mobiles</a></li>
             <li><a href="#blazers" data-toggle="tab">Tablets</a></li>
             <li><a href="#sunglass" data-toggle="tab">Laptops</a></li>
-            <li><a href="#kids" data-toggle="tab">Kids</a></li>
-            <li><a href="#poloshirt" data-toggle="tab">Polo shirt</a></li>
+            <li><a href="#kids" data-toggle="tab">Accessories</a></li>
+            <li><a href="#poloshirt" data-toggle="tab">Watch</a></li>
         </ul>
     </div>
     <div class="tab-content">
