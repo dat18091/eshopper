@@ -19,6 +19,8 @@
                         <h2>{{ number_format($product->product_price).' '.'VND' }}</h2>
                         <p>{{ $product->product_name }}</p>
                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                        <a href="{{URL::to('/chi-tiet-san-pham/'.$product->product_id)}}" 
+                        class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Details</a>
                     </div>
                 </div>
             </div>

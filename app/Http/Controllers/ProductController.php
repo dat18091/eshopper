@@ -130,4 +130,28 @@ class ProductController extends Controller
         Session::put('message', 'Delete this product is successfully.');
         return Redirect::to('list-product');
     }
+
+    #End Admin Page
+    public function product_details($product_id){
+        $cat_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id', 'desc')->get();
+        $brand_product = DB::table('tbl_brand_product')->where('brand_status','0')->orderby('brand_id', 'desc')->get();
+
+        $details_product = DB::table('tbl_product')
+        ->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
+        ->join('tbl_brand_product','tbl_brand_product.brand_id','=','tbl_product.brand_id')
+        ->where('tbl_product.product_id', $product_id)->get();
+
+        foreach($details_product as $key => $details){
+            $category_id = $details->category_id;
+        }
+
+        $related_product = DB::table('tbl_product')
+        ->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
+        ->join('tbl_brand_product','tbl_brand_product.brand_id','=','tbl_product.brand_id')
+        ->where('tbl_category_product.category_id', $category_id)
+        ->whereNotIn('tbl_product.product_id', [$product_id])->get();
+
+        return view('pages.product.show_product_details')->with('category',$cat_product)->with('brand',$brand_product)
+        ->with('product_details',$details_product)->with('related_product',$related_product);
+    }
 }

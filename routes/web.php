@@ -21,6 +21,9 @@ Route::get('/home-category-product/{category_id}', 'CategoryController@show_cate
 #Home Brand Product
 Route::get('/home-brand-product/{brand_id}', 'BrandController@show_brand_home');
 
+#Product Details
+Route::get('/chi-tiet-san-pham/{product_id}', 'ProductController@product_details');
+
 #Back End
 Route::get('/admin', 'AdminController@Index');
 Route::get('/dashboard', 'AdminController@show_dashboard');
