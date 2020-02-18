@@ -4,7 +4,8 @@
 <!-- <head>
 <title>E-Shopper | Product details</title>
 </head> -->
-<div class="product-details"><!--product-details-->
+<div class="product-details">
+    <!--product-details-->
     <div class="col-sm-5">
         <div class="view-product">
             <img src="{{URL::to('/public/uploads/product/'.$product_value->product_image)}}" alt="" />
@@ -43,33 +44,40 @@
 
     </div>
     <div class="col-sm-7">
-        <div class="product-information"><!--/product-information-->
+        <div class="product-information">
+            <!--/product-information-->
             <img src="{{URL::to('/public/frontend/images/product-details/new.jpg')}}" class="newarrival" alt="" />
             <h2>{{ $product_value->product_name }}</h2>
             <p>Product ID: {{ $product_value->product_id }}</p>
             <img src="{{URL::to('/public/frontend/images/product-details/rating.png')}}" alt="" />
-            <span>
-                <span>{{ number_format($product_value->product_price).' '.'VND' }}</span>
-                <label>Quantity:</label>
-                <input type="number" value="1" min="1" />
-            </span>
-            <p><b>Availability:</b> In Stock</p>
-            <p><b>Condition:</b> New</p>
-            <p><b>Category:</b> {{ $product_value->category_name }} </p>
-            <p><b>Brand:</b> {{ $product_value->brand_name }}</p>
-            <span>
-                <button type="button" class="btn btn-fefault cart">
-                    <i class="fa fa-shopping-cart"></i>
-                    Add to cart
-                </button>
-            </span>
+            <form action="{{URL::to('/save-cart')}}" method="POST">
+                {{ csrf_field() }}
+                <span>
+                    <span>{{ number_format($product_value->product_price).' '.'VND' }}</span>
+                    <label>Quantity:</label>
+                    <input name="qty" type="number" value="1" min="1" />
+                    <input name="productid_hidden" type="hidden" value="{{ $product_value->product_id }}" />
+                </span>
+                <p><b>Availability:</b> In Stock</p>
+                <p><b>Condition:</b> New</p>
+                <p><b>Category:</b> {{ $product_value->category_name }} </p>
+                <p><b>Brand:</b> {{ $product_value->brand_name }}</p>
+                <span>
+                    <button type="submit" class="btn btn-fefault cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        Add to cart
+                    </button>
+                </span>
+            </form>
             <a href=""><img src="{{URL::to('/public/frontend/images/product-details/share.png')}}" class="share img-responsive" alt="" /></a>
         </div>
         <!--/product-information-->
     </div>
-</div><!--/product-details-->
+</div>
+<!--/product-details-->
 
-<div class="category-tab shop-details-tab"><!--category-tab-->
+<div class="category-tab shop-details-tab">
+    <!--category-tab-->
     <div class="col-sm-12">
         <ul class="nav nav-tabs">
             <li class="active"><a href="#details" data-toggle="tab">Details</a></li>
@@ -210,23 +218,25 @@
         </div>
 
     </div>
-</div><!--/category-tab-->
+</div>
+<!--/category-tab-->
 @endforeach
 
-<div class="recommended_items"><!--recommended_items-->
+<div class="recommended_items">
+    <!--recommended_items-->
     <h2 class="title text-center">recommended items</h2>
 
     <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="item active">
-                @foreach($related_product as $key => $related)
+                @foreach($related as $key => $related_value)
                 <div class="col-sm-4">
                     <div class="product-image-wrapper">
                         <div class="single-products">
-                        <div class="productinfo text-center">
-                                <img src="{{URL::to('public/uploads/product/'.$related->product_image)}}" width="160" height="300" alt="" />
-                                <h2>{{ number_format($related->product_price).' '.'VND' }}</h2>
-                                <p>{{ $related->product_name }}</p>
+                            <div class="productinfo text-center">
+                                <img src="{{URL::to('public/uploads/product/'.$related_value->product_image)}}" width="50px" height="260" alt="" />
+                                <h2>{{ number_format($related_value->product_price).' '.'VND' }}</h2>
+                                <p>{{ $related_value->product_name }}</p>
                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                             </div>
                         </div>
@@ -280,5 +290,6 @@
             <i class="fa fa-angle-right"></i>
         </a>
     </div>
-</div><!--/recommended_items-->
+</div>
+<!--/recommended_items-->
 @endsection

@@ -142,16 +142,16 @@ class ProductController extends Controller
         ->where('tbl_product.product_id', $product_id)->get();
 
         foreach($details_product as $key => $details){
-            $category_id = $details->category_id;
+            $brand_id = $details->brand_id;
         }
 
         $related_product = DB::table('tbl_product')
         ->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
         ->join('tbl_brand_product','tbl_brand_product.brand_id','=','tbl_product.brand_id')
-        ->where('tbl_category_product.category_id', $category_id)
+        ->where('tbl_brand_product.brand_id', $brand_id)
         ->whereNotIn('tbl_product.product_id', [$product_id])->get();
 
         return view('pages.product.show_product_details')->with('category',$cat_product)->with('brand',$brand_product)
-        ->with('product_details',$details_product)->with('related_product',$related_product);
+        ->with('product_details',$details_product)->with('related',$related_product);
     }
 }

@@ -11,7 +11,7 @@
 |
 */
 
-#Front End
+#-------------------------------------------------Front End--------------------------------------------------------
 Route::get('/', 'HomeController@index');
 Route::get('/trang-chu', 'HomeController@index');
 
@@ -24,7 +24,12 @@ Route::get('/home-brand-product/{brand_id}', 'BrandController@show_brand_home');
 #Product Details
 Route::get('/chi-tiet-san-pham/{product_id}', 'ProductController@product_details');
 
-#Back End
+#Cart 
+Route::post('/save-cart', 'CartController@save_cart');
+Route::get('/show-cart', 'CartController@show_cart');
+Route::get('/delete-to-cart/{rowId}', 'CartController@delete_to_cart');
+
+#-------------------------------------------------Back End---------------------------------------------------------
 Route::get('/admin', 'AdminController@Index');
 Route::get('/dashboard', 'AdminController@show_dashboard');
 
