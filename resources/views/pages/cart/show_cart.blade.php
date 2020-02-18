@@ -171,7 +171,7 @@
                         @foreach($content as $content_value)
 						<tr>
 							<td class="cart_product">
-								<a href=""><img width="80" height="80" src="{{URL::to('public/uploads/product/'.$content_value->options->image)}}" alt=""></a>
+								<a href=""><img width="30%" height="30%" src="{{URL::to('public/uploads/product/'.$content_value->options->image)}}" alt=""></a>
 							</td>
 							<td class="cart_description">
 								<h4><a href="{{URL::to('/chi-tiet-san-pham/'.$content_value->id)}}">{{ $content_value->name }}</a></h4>
@@ -182,10 +182,16 @@
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-                                    <input class="cart_quantity_input" type="text" min="1" name="quantity" 
+									<form action="{{URL::to('/update-cart-quantity')}}" method="POST">
+										{{ csrf_field() }}
+									<!-- <a class="cart_quantity_up" href=""> + </a> -->
+                                    <input class="cart_quantity_input" type="text" min="1" name="cart_quantity" 
                                         value="{{$content_value->qty}}" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
+									<input type="hidden" value="{{$content_value->rowId}}" name="rowid_cart" class="form-control">
+									<input type="submit" value="update" name="update_quantity" 
+										class="btn btn-default btn-sm">
+									<!-- <a class="cart_quantity_down" href=""> - </a> -->
+									</form>
 								</div>
 							</td>
 							<td class="cart_total">
