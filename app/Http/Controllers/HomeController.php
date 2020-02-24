@@ -17,6 +17,7 @@ class HomeController extends Controller
         #->join('tbl_parent_category','tbl_parent_category.parent_id','=','tbl_category_product.parent_id')
         ->orderby('category_id', 'desc')->get();
         $brand_product = DB::table('tbl_brand_product')->where('brand_status','0')->orderby('brand_id', 'desc')->get();
+        
         $parent_product = DB::table('tbl_parent_category')->where('parent_status','0')->orderby('parent_id', 'desc')->get();
         $all_product = DB::table('tbl_product')->where('product_status','0')->orderby('product_id', 'desc')
         ->limit(6)->get();

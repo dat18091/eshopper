@@ -30,6 +30,13 @@ Route::get('/show-cart', 'CartController@show_cart');
 Route::get('/delete-to-cart/{rowId}', 'CartController@delete_to_cart');
 Route::post('/update-cart-quantity', 'CartController@update_cart_quantity');
 
+#Checkout Login
+Route::get('/login-checkout', 'CheckoutController@login_checkout');
+#Add Customer
+Route::post('/add-customer', 'CheckoutController@add_customer');
+
+Route::get('/checkout', 'CheckoutController@checkout');
+
 #-------------------------------------------------Back End---------------------------------------------------------
 Route::get('/admin', 'AdminController@Index');
 Route::get('/dashboard', 'AdminController@show_dashboard');
